@@ -1,5 +1,5 @@
-"""Draw the v2 entry image: an illustrated newspaper front page of the world
-news of Thursday 26 November 2026.
+"""Draw the entry image (third revision): an illustrated newspaper front
+page of the world news of Thursday 26 November 2026.
 
 Run locally (needs Pillow) to regenerate entry.png:
     python3 generate_image_v2.py
@@ -9,11 +9,11 @@ directory, so the grader's standard-library-only sandbox never needs Pillow.
 
 Layout: masthead naming the day, a lead scene (Macy's 100th Thanksgiving
 parade postponed by a storm), a schematic world map with numbered pins,
-six more drawn scenes (US tariffs, Cairo tanker fire, Ukraine airbase strike,
-Ras Tanura refinery attack, Tiangong's first Pakistani astronaut, and the
-Gukesh-Sindarov world chess title match in Geneva), then 25 one-line briefs.
-32 stories in all, every one reported on 26 November 2026 and cross-checked
-in NEWS_SOURCES.md.
+six more drawn scenes (US tariffs, Cairo tanker fire, Ukraine airbase
+strike, Ras Tanura refinery attack, Tiangong's first Pakistani astronaut,
+and the Gukesh-Sindarov world chess title match in Geneva), then 30
+one-line briefs. 37 stories in all, every one reported on 26 November
+2026 and cross-checked in NEWS_SOURCES.md.
 """
 
 from PIL import Image, ImageDraw, ImageFont
@@ -129,7 +129,7 @@ def scene_cairo(d, x0, y0, x1, y1):
     for wx in (84, 196):
         d.ellipse([x0 + wx, y0 + 84, x0 + wx + 22, y0 + 106], fill=INK)
     # flames
-    for fx, fh in [(86, 58), (122, 78), (158, 62)]:
+    for fx, fh in [(82, 76), (118, 98), (156, 82)]:
         d.polygon([(x0 + fx, y0 + 54), (x0 + fx + 14, y0 + 54 - fh + 26),
                    (x0 + fx + 24, y0 + 54)], fill=ORANGE)
         d.polygon([(x0 + fx + 6, y0 + 54), (x0 + fx + 14, y0 + 54 - fh + 44),
@@ -367,6 +367,11 @@ BRIEFS = [
     "SpaceX cleared for 1M satellites",
     "US tells citizens to leave Iran",
     "Zambia bans term-limit protests",
+    "Philadelphia parade cancelled too",
+    "Nvidia slides in AI stock sell-off",
+    "Tehran: Israel dragging US to war",
+    "N. Korea expels Swiss envoy",
+    "NY mayor misses parade: surgery",
 ]
 
 
@@ -406,21 +411,21 @@ def main():
             scene_panel(d, [x0, y0, x0 + 320, y0 + 190], scene,
                         kicker, head, body)
 
-    # Briefs: 25 one-liners in three columns
+    # Briefs: 30 one-liners in three columns
     by = 744
     d.rectangle([28, by, W - 28, by + 28], fill=INK)
-    d.text((W // 2, by + 14), "MORE OF THE DAY - 25 STORIES IN BRIEF",
+    d.text((W // 2, by + 14), "MORE OF THE DAY - 30 STORIES IN BRIEF",
            font=F(SANS_BOLD, 19), fill=(245, 240, 225), anchor="mm")
-    cols = [BRIEFS[:9], BRIEFS[9:17], BRIEFS[17:]]
+    cols = [BRIEFS[:10], BRIEFS[10:20], BRIEFS[20:]]
     col_x = [36, 368, 700]
     for ci, col in enumerate(cols):
         ty = by + 38
         for j, item in enumerate(col):
             num = sum(len(c) for c in cols[:ci]) + j + 1
-            d.text((col_x[ci], ty), f"{num:02d}", font=F(SANS_BOLD, 15),
+            d.text((col_x[ci], ty), f"{num:02d}", font=F(SANS_BOLD, 14),
                    fill=RED)
-            d.text((col_x[ci] + 28, ty), item, font=F(SANS, 15), fill=INK)
-            ty += 20
+            d.text((col_x[ci] + 28, ty), item, font=F(SANS, 14), fill=INK)
+            ty += 18.5
 
     # Date-check footer
     fy = 970

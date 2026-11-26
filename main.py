@@ -1,7 +1,7 @@
 """make.fun entry for "Sum up 26 November's world news in one image".
 
 The program writes one image to /output/entry.png. The image itself is the
-entry.png stored beside this file (an illustrated front page of 32 stories
+entry.png stored beside this file (an illustrated front page of 37 stories
 drawn by generate_image_v2.py from the day's reported news; v1 used
 generate_image.py), and this program simply copies it, byte for byte, so two runs
 always produce identical output. Standard library only; no network.

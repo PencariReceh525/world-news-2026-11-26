@@ -48,3 +48,8 @@ cross-checked in at least two same-day sources before it was drawn:
   over 50,000, the Mamdani rent freeze ruling, Puerto Rico's Luma ruling,
   Norse Atlantic, SpaceX's FCC satellite clearance, the US leave-Iran notice
   and Zambia's protest ban.
+- **Added in v3 (briefs 26–30)** — Philadelphia cancelling its own
+  Thanksgiving parade and Mayor Mamdani's foot surgery (CNN's parade
+  coverage), Nvidia's slide in the AI sell-off (same-day market digests),
+  Tehran's "Israel is dragging the US into war" line (OneTurn), and North
+  Korea expelling the Swiss envoy (The Edition same-day archive).
